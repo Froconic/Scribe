@@ -7,7 +7,7 @@ from pydub.silence import split_on_silence
 # for index, name in enumerate(sr.Microphone.list_microphone_names()):
 #     print("microphone \"{1}\" found for 'Microphone(device_index={0})'".format(index, name))
 #
-filename = "Audios/test.wav"
+# filename = "Audios/test.wav"
 #
 # # initialize the recognizer
 r = sr.Recognizer()
@@ -41,6 +41,7 @@ def get_large_audio_transcription(path):
     # create a directory to store the audio chunks
     if not os.path.isdir(folder_name):
         os.mkdir(folder_name)
+    global whole_text
     whole_text = ""
     # process each chunk
     for i, audio_chunk in enumerate(chunks, start=1):
@@ -58,12 +59,12 @@ def get_large_audio_transcription(path):
                 print("Error:", str(e))
             else:
                 text = f"{text.capitalize()}. "
-                print(chunk_filename, ":", text)
+                # print(chunk_filename, ":", text)
                 whole_text += text
     # return the text for all chunks detected
     return whole_text
-path = "Audios/test.wav"
-print("\nFull Text:", get_large_audio_transcription(path))
+# path = "Audios/test.wav"
+# print("\nFull Text:", get_large_audio_transcription(path))
 
 # #Microphone
 # with sr.Microphone(   ) as source:
