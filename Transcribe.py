@@ -4,6 +4,10 @@ import os
 from pydub import AudioSegment
 from pydub.silence import split_on_silence
 
+#  TODO Split functions into files
+#  TODO GUI design
+
+
 # for index, name in enumerate(sr.Microphone.list_microphone_names()):
 #     print("microphone \"{1}\" found for 'Microphone(device_index={0})'".format(index, name))
 #
