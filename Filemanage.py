@@ -1,38 +1,33 @@
-import Scribe as scribe
+import Transcribe as transcribe
 import os
 
 path = "audio test/"
-text = "audio test/text/"
+text = "text/"
 object = os.scandir(path)
 
-for n in object:
-  if n.is_file():
-    print(n.name)
-    print("Transcription working...")
-    scribe.get_large_audio_transcription(n)
-    print("Done!")
-    print("Text working...")
-    print(scribe.whole_text)
-    with open(os.path.join(text, n.name + ".txt"), "w") as f:
-      print("Writing to file...")
-      f.write(scribe.whole_text)
-    print("Done!")
+def scribe(object):
+  for n in object:
+    filename = os.path.join(text, n.name + ".txt")
+    if n.is_file():
+      print(n.name)
+      print("Creating text file...")
+      a, b = filename.split(".wav")
+      print(a)
+      print(b)
+      filename = a + b
+      print(filename)
+      if os.path.exists(filename):
+          print("File already exists")
+      else:
+        print("Transcription working...")
+        transcribe.get_large_audio_transcription(n)
+        print("Done!")
+        print("Text working...")
+        print(transcribe.whole_text)
+        with open(filename, "w") as f:
+            print("Writing to file...")
+            f.write(transcribe.whole_text)
+            print("Done!")
 
+scribe(object)
 object.close()
-
-# def scribe(file):
-#   for file in os.listdir(path):
-#     if file.endswith(".wav"):
-#       with open(file,"r+")as f:
-#         print("Working...")
-#         scribe.get_large_audio_transcription(path)
-#         print("Done!")
-#         f.write(scribe.whole_text)
-        
-# with open('Text/test.txt', 'w') as f:
-#     print("Working...")
-#     scribe.get_large_audio_transcription(path)
-#     print("Done!")
-#     print(scribe.whole_text)
-#     f.write(scribe.whole_text)
-#     print("Audio transcribed successfully")
