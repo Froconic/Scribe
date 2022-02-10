@@ -3,17 +3,17 @@
 ## Dependencies
 
 ###### General
-'pip3 install SpeechRecognition pydub '
+`pip3 install SpeechRecognition pydub`
 
 ###### Windows
-'pip3 install pyaudio'
+`pip3 install pyaudio`
 
 ###### Linux
 
-'sudo apt-get install python-pyaudio python3-pyaudio'
-'pip3 install pyaudio'
+`sudo apt-get install python-pyaudio python3-pyaudio`
+`pip3 install pyaudio`
 
 ###### MacOS
 
-'brew install portaudio'
-'pip3 install pyaudio'
+`brew install portaudio`
+`pip3 install pyaudio`
