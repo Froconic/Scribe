@@ -11,18 +11,6 @@ from pydub.silence import split_on_silence
 # for index, name in enumerate(sr.Microphone.list_microphone_names()):
 #     print("microphone \"{1}\" found for 'Microphone(device_index={0})'".format(index, name))
 #
-# filename = "Audios/test.wav"
-#
-# # initialize the recognizer
-r = sr.Recognizer()
-# Short clips
-# open the file
-# with sr.AudioFile(filename) as source:
-#     # listen for the data (load audio to memory)
-#     audio_data = r.record(source)
-#     # recognize (convert from speech to text)
-#     text = r.recognize_google(audio_data)
-#     print(text)
 
 #     #Large clips
 def get_large_audio_transcription(path):
@@ -70,15 +58,3 @@ def get_large_audio_transcription(path):
 # path = "Audios/test.wav"
 # print("\nFull Text:", get_large_audio_transcription(path))
 
-# #Microphone
-# with sr.Microphone(   ) as source:
-#     # read the audio data from the default microphone
-#     audio = r.record(source, duration=5)
-#     print("Recognizing...")
-#     # convert speech to text
-#     text = r.recognize_google(audio)
-#     print("Done.... Printing Now....")
-#     print(text)
-   
-# with open("test-results.wav", "wb") as f:
-#     f.write(audio.get_wav_data())
